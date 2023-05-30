@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Publication Year</th>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr />
+    </td>
+  </tr>
+  <ng-container *ngFor="let book of books">
+    <tr (click)="select(book.id)">
+      <td>
+        {{ book.title }}
+      </td>
+      <td>
+        {{ book.authorName }}
+      </td>
+      <td>
+        {{ book.publicationYear }}
+      </td>
+    </tr>
+    <tr *ngIf="selectedBook === book.id">
+      <td class="details" colspan="3">
+        <app-book-item [bookData]="book"></app-book-item>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <hr />
+      </td>
+    </tr>
+  </ng-container>
+</table>
+
